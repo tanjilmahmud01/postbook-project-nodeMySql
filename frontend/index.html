@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Book</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body onload="checkLoggedInUser()">
+    <h1>Welcome, <span id="logged-username">User</span></h1>
+
+    <button onclick="logOut()">Logout</button>
+
+    <main>
+      <h2 style="text-align: center; margin-bottom: 0">Add a new post</h2>
+
+      <!-- adding new post section -->
+      <section
+        style="
+          width: 80%;
+          margin: 10px auto;
+
+          display: flex;
+          justify-content: center;
+          flex-direction: column;
+          align-items: center;
+        "
+      >
+        <form>
+          <div style="margin-right: 5px">
+            <textarea
+              required
+              name="new-post"
+              id="new-post"
+              rows="5"
+              cols="30"
+            ></textarea>
+          </div>
+          <div style="margin-right: 5px; width: 220px; margin-bottom: 5px">
+            <input
+              required
+              style="width: 100%"
+              type="text"
+              placeholder="add image url"
+              id="new-post-img-url"
+            />
+          </div>
+          <div>
+            <button onclick="handleAddNewPost()" type="submit">POST</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- a single post -->
+      <section id="post-container">
+        <div class="post">
+          <div class="post-header">
+            <div class="post-user-image">
+              <img src="./assets/user-placeholder-image.jpg" alt="" />
+            </div>
+
+            <div class="post-username-time">
+              <p class="post-username">UserName</p>
+              <div class="posted-time">
+                <span>2</span>
+                <span>hours ago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="post-text">
+            <p class="post-text-content">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Rerum
+              iusto quod eos inventore sapiente culpa commodi. Quia quis
+              laboriosam repellendus.
+            </p>
+          </div>
+
+          <div class="post-image">
+            <img
+              class="post-image-content"
+              src="./assets/user-placeholder-image.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+
+        <!-- comments -->
+        <div class="comments-container"></div>
+      </section>
+
+      <script src="./js/fetchData.js"></script>
+    </main>
+  </body>
+</html>

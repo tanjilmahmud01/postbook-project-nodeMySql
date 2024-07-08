@@ -1,0 +1,69 @@
+[
+  {
+    "id": 1,
+    "postedUsername": "Tanjil Mahmud",
+    "postedTime": "2024-06-30T08:19:43.722Z",
+    "postText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, aperiam cum ipsam facere atque voluptatum explicabo nostrum quibusdam amet nisi, quam praesentium minus.",
+    "postImageUrl": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-mini.jpg",
+    "postComments": [
+      {
+        "commentedUserId": 1,
+        "commentText": "let's go...",
+        "commentTime": "2024-06-30T08:34:34.698Z"
+      },
+      {
+        "commentedUserId": 2,
+        "commentText": "what a man!",
+        "commentTime": "2024-06-30T08:34:34.698Z"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "postedUsername": "Rukaiya Jahan Ria",
+    "postedTime": "2024-06-30T08:19:43.722Z",
+    "postText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, aperiam cum ipsam facere atque voluptatum explicabo nostrum quibusdam amet nisi, quam praesentium minus.",
+    "postImageUrl": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-mini.jpg",
+    "postComments": [
+      {
+        "commentedUserId": 1,
+        "commentText": "very sad to hear",
+        "commentTime": "2024-06-30T08:34:34.698Z"
+      },
+      {
+        "commentedUserId": 2,
+        "commentText": "oh no!",
+        "commentTime": "2024-06-30T08:34:34.698Z"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "postedUsername": "Tasnova Tabassum",
+    "postedTime": "2024-06-30T08:19:43.722Z",
+    "postText": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit, aperiam cum ipsam facere atque voluptatum explicabo nostrum quibusdam amet nisi, quam praesentium minus.",
+    "postImageUrl": "https://fdn2.gsmarena.com/vv/bigpic/apple-iphone-13-mini.jpg",
+    "postComments": [
+      {
+        "commentedUserId": 2,
+        "commentText": "Awesome",
+        "commentTime": "2024-06-30T08:34:34.698Z"
+      },
+      {
+        "commentedUserId": 1,
+        "commentText": "Congrats!",
+        "commentTime": "2024-06-30T08:34:34.698Z"
+      },
+      {
+        "commentedUserId": 1,
+        "commentText": "shabash!",
+        "commentTime": "2024-06-30T08:34:34.698Z"
+      },
+      {
+        "commentedUserId": 1,
+        "commentText": "jhakkas!",
+        "commentTime": "2024-06-30T08:34:34.698Z"
+      }
+    ]
+  }
+]

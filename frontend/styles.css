@@ -1,0 +1,153 @@
+* {
+  font-family: "Karla", sans-serif;
+}
+
+#post-container {
+  background-color: rgb(255, 247, 251);
+  width: 90%;
+
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post {
+  width: 60%;
+  margin-bottom: 5px;
+  margin-top: 30px;
+  border: 2px solid black;
+  border-radius: 8px;
+  padding: 15px;
+}
+
+.post-header {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.edit-delete-holder {
+  width: 70%;
+  display: flex;
+  justify-content: end;
+}
+
+.edit-delete-holder button {
+  margin-right: 5px;
+}
+
+.post-user-image img {
+  width: 50px;
+  height: 50px;
+}
+
+.post-details {
+}
+
+.post-username {
+  margin: 0;
+  margin-top: 3px;
+}
+
+.posted-time {
+  margin: 0;
+  color: rgb(106, 103, 103);
+}
+
+.post-text {
+  margin-top: 4px;
+}
+
+.post-text-content {
+  margin: 0;
+  padding: 10px;
+}
+
+.post-image {
+  display: flex;
+  justify-content: center;
+}
+
+.post-image img {
+  width: 50%;
+  border-radius: 8px;
+  margin: 15px;
+}
+
+.comment-holder {
+  background-color: rgb(177, 217, 219);
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 3px;
+}
+
+.comment-container {
+  display: flex;
+  align-items: start;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.comment-user-image img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.comment-text-container {
+  background-color: rgba(204, 237, 127, 0.397);
+  padding: 10px;
+}
+
+.comment-text-container h4 {
+  margin: 0;
+  margin-bottom: 3px;
+}
+
+.comment-text-container p {
+  margin: 0;
+}
+
+.postComment-container {
+  display: flex;
+  margin-top: 15px;
+}
+
+.postComment-input {
+  padding: 10px;
+  outline: none;
+  border: 1px solid rgb(100, 95, 95);
+  width: 100%;
+}
+
+.postComment-btn {
+  padding: 10px;
+  background-color: rgb(243, 11, 11);
+  border: none;
+  color: white;
+  margin-left: 0px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+/* modal design */
+
+.modal {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+  z-index: 1;
+  border: 2px solid olivedrab;
+  position: fixed;
+  bottom: 0;
+}
+
+.modal-content {
+  width: 50%;
+  background-color: white;
+  border: 2px solid black;
+  border-radius: 8px;
+  margin: 15% auto;
+}
