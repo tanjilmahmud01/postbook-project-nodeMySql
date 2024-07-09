@@ -1,3 +1,12 @@
+const checkLoggedInUser = () => {
+  let user = localStorage.getItem("loggedInUser");
+  if (user) {
+    user = JSON.parse(user);
+  } else {
+    window.location.href = "/login.html";
+  }
+};
+
 function showLoggedUserName() {
   const nameSpan = document.getElementById("logged-username");
   let user = localStorage.getItem("loggedInUser");
@@ -8,21 +17,13 @@ function showLoggedUserName() {
   nameSpan.innerText = user?.userName;
 }
 
+//run the showLoggedUserName automatically
 showLoggedUserName();
 
 function logOut() {
   localStorage.clear();
   checkLoggedInUser();
 }
-
-const checkLoggedInUser = () => {
-  let user = localStorage.getItem("loggedInUser");
-  if (user) {
-    user = JSON.parse(user);
-  } else {
-    window.location.href = "/login.html";
-  }
-};
 
 const fetchDataFromServer = async () => {
   try {
@@ -35,35 +36,6 @@ const fetchDataFromServer = async () => {
     console.log("error: ", err);
   }
 };
-
-function timeDifference(dateTimeString) {
-  const now = new Date();
-  const past = new Date(dateTimeString);
-
-  let diffInSeconds = Math.floor((now - past) / 1000);
-
-  const days = Math.floor(diffInSeconds / (24 * 3600));
-  diffInSeconds -= days * 24 * 3600;
-
-  const hours = Math.floor(diffInSeconds / 3600);
-  diffInSeconds -= hours * 3600;
-
-  const minutes = Math.floor(diffInSeconds / 60);
-  const seconds = diffInSeconds % 60;
-
-  let result = "";
-  if (days > 0) {
-    result += `${days} day${days !== 1 ? "s" : ""}`;
-  } else if (hours > 0) {
-    result += `${hours} hour${hours !== 1 ? "s" : ""}`;
-  } else if (minutes > 0) {
-    result += `${minutes} minute${minutes !== 1 ? "s" : ""}`;
-  } else {
-    result += `${seconds} second${seconds !== 1 ? "s" : ""}`;
-  }
-
-  return result;
-}
 
 const showData = (postData) => {
   const postContainer = document.getElementById("post-container");
@@ -120,7 +92,7 @@ const showData = (postData) => {
 
     postContainer.appendChild(postDiv);
 
-    //comments
+    //comments from a post
     let postComments = await fetchCommentsOfPost(post.postId);
 
     postComments.forEach((comment) => {
@@ -148,7 +120,7 @@ const showData = (postData) => {
       postDiv.appendChild(commentDiv);
     });
 
-    //comment input
+    //make a new comment input
     let postCommentDiv = document.createElement("div");
     postCommentDiv.classList.add("postComment-container");
     postCommentDiv.innerHTML = `
@@ -191,11 +163,10 @@ const handlePostComment = async (postId) => {
     `postComment-input-for-${postId}`
   ).value;
 
-  //time
+  //current time
   let now = new Date();
   let commentTime = now.toISOString();
 
-  // apatoto static user id
   let user = localStorage.getItem("loggedInUser");
   if (user) {
     user = JSON.parse(user);
@@ -220,7 +191,7 @@ const handlePostComment = async (postId) => {
 
   const data = await res.json();
 
-  //reload the page for new comment
+  //reload the page for seeing the new comment
   location.reload();
 };
 
@@ -229,11 +200,10 @@ const handleAddNewPost = async () => {
   const postImageUrl = document.getElementById("new-post-img-url").value;
 
   let now = new Date();
-  now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+  now.setMinutes(now.getMinutes() - now.getTimezoneOffset()); // to revise the time from UTC to local time
 
   let postedTime = now.toISOString();
 
-  // apatoto static user id
   let user = localStorage.getItem("loggedInUser");
   if (user) {
     user = JSON.parse(user);
@@ -258,8 +228,9 @@ const handleAddNewPost = async () => {
   const data = await res.json();
   console.log("new post data from server: ", data);
 
-  //reload the page for new comment
+  //reload the page for seeing the new post
   location.reload();
 };
 
+//run the fetchDataFromServer automatically after page reload
 fetchDataFromServer();

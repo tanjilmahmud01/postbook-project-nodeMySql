@@ -18,7 +18,7 @@ const fetchUserInfo = async (user) => {
   }
 };
 
-async function handleLogin(event) {
+async function handleLogin() {
   const userIdInput = document.getElementById("user-id");
   const passwordInput = document.getElementById("password");
 
@@ -27,6 +27,7 @@ async function handleLogin(event) {
 
   const user = { userId, password };
 
+  // server returns an array with a single object or no object
   const userInfo = await fetchUserInfo(user);
 
   const errorElement = document.getElementById("user-login-error");

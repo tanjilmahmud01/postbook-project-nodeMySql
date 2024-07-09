@@ -1,16 +1,13 @@
 const express = require("express");
 const mysql = require("mysql");
 const port = 5000;
-const posts = require("./posts.json");
+const posts = require("./posts.json"); //dummy data
 const cors = require("cors");
-const { type } = require("express/lib/response");
-const res = require("express/lib/response");
-let returnObject = {};
 
 const app = express();
 
-app.use(cors());
-app.use(express.json());
+app.use(cors()); // for CORS issues
+app.use(express.json()); // for converting the data from json string object to normal js object
 
 //create connection with MySql server
 const db = mysql.createConnection({
@@ -20,8 +17,6 @@ const db = mysql.createConnection({
   database: "postbook",
 });
 
-//connect
-
 db.connect((err) => {
   if (err) {
     console.log("Error Connecting to the database: ", err);
@@ -29,23 +24,6 @@ db.connect((err) => {
   }
   console.log("MySql server connected...");
 });
-
-// app.get("/getPosts", (req, res) => {
-//   res.send(posts);
-// });
-
-// function myTest(postId) {
-//   // console.log(postId);
-//   let sqlForComment = `SELECT comments.commentOfPostId, users.userName as commentedUsername, comments.commentOfUserId, comments.commentTime, comments.commentText FROM comments INNER JOIN users ON users.userId = comments.commentOfUserId WHERE comments.commentOfPostId = ${postId}`;
-
-//   let query = db.query(sqlForComment, (err, comments) => {
-//     if (err) {
-//       console.log("Error Connecting to the database: ", err);
-//       throw err;
-//     }
-//     comments.forEach((element) => console.log("one data"));
-//   });
-// }
 
 app.get("/getPosts", (req, res) => {
   let sqlForPosts =
@@ -74,12 +52,13 @@ app.get("/getcomments/:postId", (req, res) => {
       throw err;
     }
 
-    console.log(comments);
+    // console.log(comments);
     res.send(comments);
   });
 });
 
 //get a user information
+// we have used post request to "get" data here because of security issues with password field
 
 app.post("/getUserInfo", (req, res) => {
   console.log(req.body);
@@ -92,12 +71,12 @@ app.post("/getUserInfo", (req, res) => {
       throw err;
     }
 
-    console.log(result);
+    // console.log(result);
     res.send(result);
   });
 });
 
-//post a new comment
+//adding a new comment
 
 app.post("/postComment", (req, res) => {
   const { commentOfPostId, commentOfUserId, commentTime, commentText } =
@@ -114,11 +93,13 @@ app.post("/postComment", (req, res) => {
         throw err;
       }
 
-      console.log(result);
+      // console.log(result);
       res.send(result);
     }
   );
 });
+
+//adding a new post
 
 app.post("/addNewPost", (req, res) => {
   const { postedUserId, postedTime, postText, postImageUrl } = req.body;
@@ -134,7 +115,7 @@ app.post("/addNewPost", (req, res) => {
         throw err;
       }
 
-      console.log(result);
+      // console.log(result);
       res.send(result);
     }
   );

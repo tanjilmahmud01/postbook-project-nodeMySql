@@ -20,8 +20,9 @@
 
       <div class="login-form">
         <form>
-          <input id="user-id" type="text" placeholder="User ID" />
+          <input required id="user-id" type="text" placeholder="User ID" />
           <input
+            required
             type="password"
             name="password"
             id="password"
@@ -30,6 +31,8 @@
         </form>
         <button onclick="handleLogin()">Login</button>
       </div>
+
+      <!-- error message -->
       <div id="user-login-error" class="hidden error">
         <h3>User Id not found or Password is wrong! Please try again</h3>
       </div>

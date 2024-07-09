@@ -52,7 +52,7 @@
             />
           </div>
           <div>
-            <button onclick="handleAddNewPost()" type="submit">POST</button>
+            <button onsubmit="handleAddNewPost()" type="submit">POST</button>
           </div>
         </form>
       </section>
@@ -91,10 +91,11 @@
           </div>
         </div>
 
-        <!-- comments -->
+        <!-- comments under a post -->
         <div class="comments-container"></div>
       </section>
 
+      <script src="./js/utils/calculateTimeDifference.js"></script>
       <script src="./js/fetchData.js"></script>
     </main>
   </body>
